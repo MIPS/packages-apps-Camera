@@ -55,6 +55,9 @@ endif
 LOCAL_LDFLAGS := -llog -lGLESv2
 
 LOCAL_MODULE_TAGS := optional
-
-LOCAL_MODULE    := libjni_mosaic
+ifeq ($(USE_GMS_LIBS),true)
+	LOCAL_MODULE    := libjni_mosaic_old
+else
+	LOCAL_MODULE    := libjni_mosaic
+endif
 include $(BUILD_SHARED_LIBRARY)
